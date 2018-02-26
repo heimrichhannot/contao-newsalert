@@ -114,7 +114,7 @@ $GLOBALS['TL_DCA'][$strTable] = [
             'inputType' => 'checkbox',
             'sorting'   => true,
             'default'   => 0,
-            'sql'       => "int(1) NOT NULL default 0",
+            'sql'       => "char(1) NOT NULL default ''",
             'eval'      => ['tl_class' => 'w50'],
         ],
         'captcha'   => [

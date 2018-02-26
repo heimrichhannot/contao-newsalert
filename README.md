@@ -1,6 +1,6 @@
 # Contao Newsalert Bundle
-[![Latest Stable Version](https://poser.pugx.org/heimrichhannot/contao-newsalert-bundle/v/stable)](https://packagist.org/packages/heimrichhannot/contao-newsalert-bundle)
-[![Total Downloads](https://poser.pugx.org/heimrichhannot/contao-newsalert-bundle/downloads)](https://packagist.org/packages/heimrichhannot/contao-newsalert-bundle)
+[![Latest Stable Version](https://poser.pugx.org/heimrichhannot/contao-newsalert/v/stable)](https://packagist.org/packages/heimrichhannot/contao-newsalert)
+[![Total Downloads](https://poser.pugx.org/heimrichhannot/contao-newsalert/downloads)](https://packagist.org/packages/heimrichhannot/contao-newsalert)
 
 > Contao 3 backport from [Contao Newsalert Bundle](https://github.com/heimrichhannot/contao-newsalert-bundle)
 
