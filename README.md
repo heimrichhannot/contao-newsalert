@@ -26,7 +26,7 @@ The module comes with an interface to add custom news topic, for example categor
 ## Requirements
 
 * Contao 3.5
-* PHP <= 7.0
+* PHP >= 7.0
 * [Contao Notification Center](https://github.com/terminal42/contao-notification_center)
 * [Formhybrid](https://github.com/heimrichhannot/contao-formhybrid)
 
@@ -65,7 +65,7 @@ Contao 3:
 The module adds a checkbox to news archive to activate (or deactivate) newsalert for archives. It also add a checkbox to the news articles form to set (or unset) an article sent (by setting unsent newsalert will be triggered again for said article).
 
 The management of the receivers is placed within the news section (News -> Newsalert).
-The overview about sent messages is fount withing the newsalert section (News -> Newsalert -> Sent Newsalerts)
+The overview about sent messages is found withing the newsalert section (News -> Newsalert -> Sent Newsalerts)
 
 ## Developers
 
