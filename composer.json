@@ -1,0 +1,34 @@
+{
+  "name": "heimrichhannot/contao-newsalert",
+  "description": "A contao module to subscribe to news topics",
+  "type": "contao-module",
+  "license": "LGPL-3.0-or-later",
+  "homepage": "https://github.com/heimrichhannot/contao-newsalert",
+  "require": {
+    "php": "~7.0",
+    "contao/core-bundle": "~3.5.1",
+    "contao-community-alliance/composer-plugin": "~2.4",
+    "terminal42/notification_center": "~1.4.1",
+    "heimrichhannot/contao-formhybrid": "^3.0"
+  },
+  "authors": [
+    {
+      "name": "Heimrich & Hannot",
+      "email": "digitales@heimrich-hannot.de",
+      "homepage": "http://www.heimrich-hannot.de",
+      "role": "Developer"
+    }
+  ],
+  "autoload": {
+    "classmap": [
+      ""
+    ]
+  },
+  "extra": {
+    "contao": {
+      "sources": {
+        "": "system/modules/newsalert"
+      }
+    }
+  }
+}

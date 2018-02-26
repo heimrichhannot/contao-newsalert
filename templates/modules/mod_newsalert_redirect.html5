@@ -1,0 +1,4 @@
+<?php $this->block('content'); ?>
+    <<?= $this->hl ?>><?= $this->headline ?></<?= $this->hl ?>>
+    <?= $this->strMessage ?>
+<?php $this->endblock(); ?>
