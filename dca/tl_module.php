@@ -12,18 +12,19 @@ $arrDca = &$GLOBALS['TL_DCA']['tl_module'];
 
 $arrDca['palettes'][\HeimrichHannot\ContaoNewsAlertBundle\Modules\NewsalertSubscribeModule::MODULE_NAME] =
     '{title_legend},name,headline,type;'
-    .'{optin_legend},newsalertOptIn;'
-    .'{optout_legend},formHybridAddOptOut;'
-    .'{misc_legend},newsalertIntervall,formHybridCustomSubmit;';
+    .'{message_handling_legend},newsalertOptIn,formHybridAddOptOut;'
+    .'{misc_legend},newsalertCronIntervall,newsalertNoTopicSelection,formHybridCustomSubmit;';
 
 $arrDca['palettes'][\HeimrichHannot\ContaoNewsAlertBundle\Modules\NewsalertRedirectModule::MODULE_NAME] =
     '{title_legend},name,headline,type;';
 
 $arrDca['palettes']['__selector__'][] = 'newsalertOptIn';
 $arrDca['palettes']['__selector__'][] = 'formHybridCustomSubmit';
+$arrDca['palettes']['__selector__'][] = 'newsalertNoTopicSelection';
 
 $arrDca['subpalettes']['newsalertOptIn'] = 'formHybridOptInSuccessMessage,formHybridOptInNotification,formHybridOptInJumpTo';
 $arrDca['subpalettes']['formHybridCustomSubmit'] = 'formHybridSubmitLabel,formHybridSubmitClass';
+$arrDca['subpalettes']['newsalertNoTopicSelection'] = 'newsalertOverwriteTopic';
 
 
 
@@ -34,6 +35,20 @@ $arrFields = [
         'inputType' => 'checkbox',
         'eval'      => ['tl_class' => 'w50', 'submitOnChange' => true],
         'sql'       => "char(1) NOT NULL default ''",
+    ],
+    'newsalertNoTopicSelection'                         => [
+        'label'     => &$GLOBALS['TL_LANG']['tl_module']['newsalertNoTopicSelection'],
+        'exclude'   => true,
+        'inputType' => 'checkbox',
+        'eval'      => ['submitOnChange' => true],
+        'sql'       => "char(1) NOT NULL default ''",
+    ],
+    'newsalertOverwriteTopic'                         => [
+        'label'     => &$GLOBALS['TL_LANG']['tl_module']['newsalertOverwriteTopic'],
+        'exclude'   => true,
+        'inputType' => 'text',
+        'eval'      => ['submitOnChange' => true, 'maxlength'=>64],
+        'sql'       => "varchar(64) NOT NULL default ''",
     ],
     'newsalertCronIntervall'                         => [
         'label'     => &$GLOBALS['TL_LANG']['tl_module']['newsalertCronIntervall'],

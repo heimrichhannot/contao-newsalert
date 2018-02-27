@@ -10,6 +10,7 @@ namespace HeimrichHannot\ContaoNewsAlertBundle\Forms;
 
 use Contao\Session;
 use HeimrichHannot\ContaoNewsAlertBundle\Models\NewsalertRecipientsModel;
+use HeimrichHannot\ContaoNewsAlertBundle\Modules\NewsalertSubscribeModule;
 use HeimrichHannot\FormHybrid\Form;
 use HeimrichHannot\StatusMessages\StatusMessage;
 
@@ -22,6 +23,14 @@ class NewsAlertSubscriptionForm extends Form
     protected $strModelClass = NewsalertRecipientsModel::class;
     protected $isDuplicateEntityError = false;
     protected $strTopic;
+    protected $overridableValues = [];
+
+    public function __construct(NewsalertSubscribeModule $varConfig = null, int $intId = 0)
+    {
+        $this->overridableValues = $varConfig->getOverwriteableFieldValues();
+        parent::__construct($varConfig, $intId);
+    }
+
 
     protected function compile()
     {
@@ -30,6 +39,9 @@ class NewsAlertSubscriptionForm extends Form
         }
     }
 
+    /**
+     * @param \DataContainer $dc this
+     */
     protected function onSubmitCallback(\DataContainer $dc)
     {
         $strEmail = $dc->getFieldValue('email');
@@ -39,12 +51,18 @@ class NewsAlertSubscriptionForm extends Form
             ['email = ?', 'topic = ?'],
             [$strEmail, $strTopic]
         );
+        $confirmed = '';
+
+        if (!$this->arrData['newsalertOptIn'])
+        {
+            $confirmed = '1';
+        }
 
         if (!$objRecipients) {
             $this->objActiveRecord->email = $dc->getFieldValue('email');
             $this->objActiveRecord->topic = $dc->getFieldValue('topic');
             $this->objActiveRecord->dateAdded = time();
-            $this->objActiveRecord->confirmed = 0;
+            $this->objActiveRecord->confirmed = $confirmed;
             $this->objActiveRecord->save();
         } else {
             while ($objRecipients->next()) {
@@ -87,4 +105,39 @@ class NewsAlertSubscriptionForm extends Form
         $session->set('contao_newsalert_topic', $topic);
         $session->set('contao_newsalert_opt', $opt);
     }
+
+    protected function getFieldValue($strName)
+    {
+        if (array_key_exists($strName, $this->overridableValues))
+        {
+            return $this->overridableValues[$strName];
+        }
+        return parent::getFieldValue($strName);
+    }
+
+    /**
+     * @return array
+     */
+    public function getOverridableFieldValues(): array
+    {
+        return $this->overridableValues;
+    }
+
+    /**
+     * Add a default value
+     *
+     * Set value to null to delete a field/value pair
+     *
+     * @param string $name Field name
+     * @param string|int|null $value Field value
+     */
+    public function setOverridableFieldValue(string $name, $value = null)
+    {
+        if (!$value)
+        {
+            unset($this->overridableValues[$name]);
+        }
+        $this->overridableValues[$name] = $value;
+    }
+
 }

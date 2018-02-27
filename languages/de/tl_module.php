@@ -22,8 +22,7 @@ $GLOBALS['TL_LANG']['FMD'][\HeimrichHannot\ContaoNewsAlertBundle\Modules\Newsale
 
 $lang = &$GLOBALS['TL_LANG']['tl_module'];
 
-$lang['optin_legend']   = "Opt-In Handling";
-$lang['optout_legend']  = "Opt-Out Handling";
+$arrLang['message_handling_legend'] = "Nachrichten handling";
 $lang['trigger_legend'] = "Sendeevent";
 $lang['misc_legend']    = "Verschiedenes";
 

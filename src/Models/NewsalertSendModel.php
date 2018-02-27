@@ -15,6 +15,7 @@ use HeimrichHannot\Haste\Model\Model;
  *
  * @property int $id
  * @property int $pid
+ * @property int $newsId
  * @property int $tstamp
  * @property string  $topics
  * @property string  $senddate

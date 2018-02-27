@@ -34,7 +34,7 @@ $GLOBALS['TL_DCA'][$strTable] = [
             'panelLayout' => 'debug;filter;sort,search,limit',
         ],
         'label'      => [
-            'fields'      => ['senddate', 'pid:tl_news.headline', 'topics', 'user:tl_user.name', 'count_messages'],
+            'fields'      => ['senddate', 'newsId:tl_news.headline', 'topics', 'count_messages', 'pid:tl_module.name'],
             'showColumns' => true,
         ],
         'global_operations' => [
@@ -58,7 +58,13 @@ $GLOBALS['TL_DCA'][$strTable] = [
         ],
         'pid'            => [
             'label'      => &$GLOBALS['TL_LANG'][$strTable]['pid'],
-            'foreignKey' => 'tl_news.id',
+            'foreignKey' => 'tl_module.name',
+            'sql'        => "int(10) unsigned NOT NULL default '0'",
+            'relation'   => ['type' => 'belongsTo', 'load' => 'eager']
+        ],
+        'newsId'            => [
+            'label'      => &$GLOBALS['TL_LANG'][$strTable]['newsId'],
+            'foreignKey' => 'tl_news.headline',
             'sql'        => "int(10) unsigned NOT NULL default '0'",
             'relation'   => ['type' => 'belongsTo', 'load' => 'eager']
         ],

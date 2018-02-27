@@ -17,10 +17,12 @@ class Modules
     {
         $modules = ModuleModel::findByType(NewsalertSubscribeModule::MODULE_NAME);
         $module_list = [];
-        while ($modules->next()) {
-            $module_list[$modules->id] = $modules->name;
+        if ($modules)
+        {
+            while ($modules->next()) {
+                $module_list[$modules->id] = $modules->name;
+            }
         }
-
         return $module_list;
     }
 }

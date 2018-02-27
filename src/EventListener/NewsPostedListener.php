@@ -40,6 +40,7 @@ class NewsPostedListener
      * Trigger the send mechanism by model.
      *
      * @param ModuleModel $module
+     * @return bool|int|void
      */
     public function callByModule($module)
     {
@@ -55,6 +56,7 @@ class NewsPostedListener
         while ($objArticles->next()) {
             $count += $this->sendNewsalert($objArticles->current(), $module);
         }
+        return $count;
     }
 
     /**
@@ -197,25 +199,25 @@ class NewsPostedListener
                 ++$intCountMails;
             }
 
-            $this->createSendModel($objArticle, $topics, $intCountMails);
-
             $objNotificationCollection->reset();
 
             $objArticle->newsalert_sent = 1;
             $objArticle->save();
         }
 
-        $this->createSendModel($objArticle, $topics, $intCountMails);
+        $this->createSendModel($objArticle, $topics, $objModule->id, $intCountMails);
 
         return $intCountMails;
     }
 
-    protected function createSendModel($objArticle, $arrTopics, $intCountMails)
+    protected function createSendModel($objArticle, $arrTopics, $configId, $intCountMails)
     {
         $objNewsalertSend = new NewsalertSendModel();
-        $objNewsalertSend->pid = $objArticle->id;
+        $objNewsalertSend->pid = $configId;
+        $objNewsalertSend->newsId = $objArticle->id;
         $objNewsalertSend->topics = $arrTopics;
         $objNewsalertSend->senddate = time();
+        $objNewsalertSend->tstamp = time();
         $objNewsalertSend->count_messages = $intCountMails;
         $objNewsalertSend->user = $objArticle->author;
         $objNewsalertSend->save();

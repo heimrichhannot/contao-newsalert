@@ -114,7 +114,6 @@ $GLOBALS['TL_DCA'][$strTable] = [
             'label'     => &$GLOBALS['TL_LANG']['tl_newsalert_recipients']['confirmed'],
             'inputType' => 'checkbox',
             'sorting'   => true,
-            'default'   => 0,
             'sql'       => "char(1) NOT NULL default ''",
             'eval'      => ['tl_class' => 'w50'],
         ],

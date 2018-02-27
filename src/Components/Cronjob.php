@@ -9,6 +9,7 @@
 namespace HeimrichHannot\ContaoNewsAlertBundle\Components;
 
 use Contao\ModuleModel;
+use Contao\System;
 use HeimrichHannot\ContaoNewsAlertBundle\EventListener\NewsPostedListener;
 use HeimrichHannot\ContaoNewsAlertBundle\Modules\NewsalertSubscribeModule;
 
@@ -42,7 +43,7 @@ class Cronjob
     private function sendNewsalerts($strInterval)
     {
         $objModules = ModuleModel::findBy(
-            ['type=?', 'newsalertCronIntervall=?'],
+            ['tl_module.type=?', 'tl_module.newsalertCronIntervall=?'],
             [NewsalertSubscribeModule::MODULE_NAME, $strInterval]
         );
         if (!$objModules) {
