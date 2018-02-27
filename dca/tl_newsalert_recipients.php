@@ -40,7 +40,7 @@ $GLOBALS['TL_DCA'][$strTable] = [
             'newsalert_sent' => [
                 'label' => &$GLOBALS['TL_LANG']['tl_newsalert_recipients']['label'],
                 'href'  => 'table=tl_newsalert_sent',
-                'icon'  => 'db.svg',
+                'icon'  => 'db.gif',
             ]
         ],
         'operations'        => [
@@ -98,7 +98,7 @@ $GLOBALS['TL_DCA'][$strTable] = [
             'label'            => &$GLOBALS['TL_LANG']['tl_newsalert_recipients']['topic'],
             'sorting'          => true,
             'inputType'        => 'select',
-            'options_callback' => ['hh.contao-newsalert.newstopiccollection', 'getAllTopics'],
+            'options_callback' => [\HeimrichHannot\ContaoNewsAlertBundle\Components\NewsTopicCollection::class, 'getAllTopics'],
             'search'           => true,
             'eval'             => [
                 'chosen'    => true,

@@ -11,5 +11,5 @@
 $arrLang = &$GLOBALS['TL_LANG']['tl_news_archive'];
 
 $arrLang['newsalert_legend'] = "Newsalert settings";
-$arrLang['newsalert_activate'] = ['Newsalert aktivieren','Active newsalert for this article (will be send when published).'];
+$arrLang['newsalert_activate'] = ['Activate newsalert','Activate newsalert for this article (will be send when published).'];
 $arrLang['newsalert_configuration'] = ['Configuration module','The news alert module, which contains the configuration for this archive.'];

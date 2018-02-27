@@ -25,7 +25,7 @@ class NewsTopicCollection
             $instance = self::$instance = new self;
             foreach ($GLOBALS['HUH_NEWSALERT']['TOPIC_SOURCE'] as $source)
             {
-                $instance->addTopicSource($source);
+                $instance->addTopicSource(new $source);
             }
         }
         return self::$instance;

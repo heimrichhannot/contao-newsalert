@@ -9,6 +9,8 @@
  */
 
 
+
+$GLOBALS['TL_LANG']['FMD']['huh_newsalert'] = 'Newsalert';
 $GLOBALS['TL_LANG']['FMD'][\HeimrichHannot\ContaoNewsAlertBundle\Modules\NewsalertSubscribeModule::MODULE_NAME] = [
     'Newsalert Anmeldung',
     'Anmeldung für Newsalert-Topics'

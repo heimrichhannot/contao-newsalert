@@ -30,14 +30,14 @@ $dc['subpalettes']['newsalert_activate'] = 'newsalert_configuration';
 
 $fields = [
     'newsalert_activate' => [
-        'label'     => &$GLOBALS['TL_LANG']['tl_news']['newsalert_activate'],
+        'label'     => &$GLOBALS['TL_LANG']['tl_news_archive']['newsalert_activate'],
         'inputType' => 'checkbox',
         'exclude'   => true,
         'sql'       => "int(1) NOT NULL default '0'",
         'eval'      => ['tl_class' => 'w50 clr', 'submitOnChange' => true],
     ],
     'newsalert_configuration' => [
-        'label'     => &$GLOBALS['TL_LANG']['tl_news']['newsalert_configuration'],
+        'label'     => &$GLOBALS['TL_LANG']['tl_news_archive']['newsalert_configuration'],
         'inputType' => 'select',
         'exclude' => true,
         'sql' => "int(11) NOT NULL default '0'",
