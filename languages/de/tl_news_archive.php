@@ -10,6 +10,8 @@
 
 $arrLang = &$GLOBALS['TL_LANG']['tl_news_archive'];
 
+
 $arrLang['newsalert_legend'] = "Newsalert Einstellungen";
+$arrLang['newsalert'] = "Newsalert";
 $arrLang['newsalert_activate'] = ['Newsalert aktivieren','Newsalert für diesen Beitrag aktivieren (wird bei Veröffentlichung gesendet)'];
 $arrLang['newsalert_configuration'] = ['Konfigurationsmodule','Das Newsalertmodule, welche die Konfiguration für die Newsalert für dieses Archiv enthält.'];

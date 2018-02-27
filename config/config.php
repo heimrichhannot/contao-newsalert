@@ -12,8 +12,8 @@
  * Modules
  */
 
-$GLOBALS['BE_MOD']['content']['news']['tables'][] = 'tl_newsalert_recipients';
 $GLOBALS['BE_MOD']['content']['news']['tables'][] = 'tl_newsalert_sent';
+$GLOBALS['BE_MOD']['content']['news']['tables'][] = 'tl_newsalert_recipients';
 
 $GLOBALS['FE_MOD']['huh_newsalert'][\HeimrichHannot\ContaoNewsAlertBundle\Modules\NewsalertSubscribeModule::MODULE_NAME] = 'HeimrichHannot\ContaoNewsAlertBundle\Modules\NewsalertSubscribeModule';
 $GLOBALS['FE_MOD']['huh_newsalert'][\HeimrichHannot\ContaoNewsAlertBundle\Modules\NewsalertRedirectModule::MODULE_NAME] = 'HeimrichHannot\ContaoNewsAlertBundle\Modules\NewsalertRedirectModule';
@@ -72,7 +72,7 @@ $GLOBALS['NOTIFICATION_CENTER']['NOTIFICATION_TYPE'][\HeimrichHannot\ContaoNewsA
 ];
 
 /*
- * Newsalert Topic
+ * Newsalert Topics
  */
 
 $GLOBALS['HUH_NEWSALERT']['TOPIC_SOURCE']['newsarchives'] = \HeimrichHannot\ContaoNewsAlertBundle\Components\NewsArchiveTopics::class;

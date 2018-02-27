@@ -8,14 +8,15 @@
  * // * @license http://www.gnu.org/licences/lgpl-3.0.html LGPL
  * // */
 
+System::loadLanguageFile('tl_newsalert_sent');
+
 $strTable = 'tl_newsalert_recipients';
-//
+
 $GLOBALS['TL_DCA'][$strTable] = [
     'config'   => [
         'dataContainer'    => 'Table',
         'switchToEdit'     => true,
         'enableVersioning' => false,
-        'closed'           => true,
         'backlink'         => 'do=news',
         'label'            => &$GLOBALS['TL_LANG']['tl_newsalert_recipients']['label'],
         'sql'              => [
@@ -38,7 +39,7 @@ $GLOBALS['TL_DCA'][$strTable] = [
         ],
         'global_operations' => [
             'newsalert_sent' => [
-                'label' => &$GLOBALS['TL_LANG']['tl_newsalert_recipients']['label'],
+                'label' => &$GLOBALS['TL_LANG']['tl_newsalert_sent']['label'],
                 'href'  => 'table=tl_newsalert_sent',
                 'icon'  => 'db.gif',
             ]

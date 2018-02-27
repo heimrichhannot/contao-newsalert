@@ -8,11 +8,11 @@
  * @license http://www.gnu.org/licences/lgpl-3.0.html LGPL
  */
 
-$arrLang = &$GLOBALS['TL_LANG']['tl_newsalert_recipients'];
+$arrLang = &$GLOBALS['TL_LANG']['tl_newsalert_sent'];
 
 $arrLang['new'] = ['New newsalert subscriber'];
 
-$arrLang['label'] = "Gesendete Newsalerts";
+$arrLang['label'] = "Sent Newsalerts";
 $arrLang['abonnement_legend'] = "Newsalert subscription";
 
 $arrLang['pid'] = ['Article','Newsalert news article Newsartikel.'];
