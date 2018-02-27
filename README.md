@@ -1,4 +1,4 @@
-# Contao Newsalert Bundle
+# Contao Newsalert Module
 [![Latest Stable Version](https://poser.pugx.org/heimrichhannot/contao-newsalert/v/stable)](https://packagist.org/packages/heimrichhannot/contao-newsalert)
 [![Total Downloads](https://poser.pugx.org/heimrichhannot/contao-newsalert/downloads)](https://packagist.org/packages/heimrichhannot/contao-newsalert)
 
@@ -64,8 +64,8 @@ Contao 3:
 
 The module adds a checkbox to news archive to activate (or deactivate) newsalert for archives. It also add a checkbox to the news articles form to set (or unset) an article sent (by setting unsent newsalert will be triggered again for said article).
 
-The management of the receivers is placed within the news section (News -> Newsalert).
-The overview about sent messages is found withing the newsalert section (News -> Newsalert -> Sent Newsalerts)
+The overview about sent messages is placed within the news archive section (News -> Newsalert).
+The management of the receivers is found withing the newsalert section (News -> Newsalert -> Newsalert receivers)
 
 ## Developers
 
@@ -80,7 +80,7 @@ $GLOBALS['HUH_NEWSALERT']['TOPIC_SOURCE']['newsarchives'] = \HeimrichHannot\Cont
 ```
 
 ### Notification center tokens
-ContaoNewsalertBundle uses Notification Center for e-mail sending. Following tokens are added to `news_posted` type (in addition to the default ones): 
+ContaoNewsalert uses Notification Center for e-mail sending. Following tokens are added to `news_posted` type (in addition to the default ones): 
 
 Tag                                   | Description
 --------------------------------------|-----------
