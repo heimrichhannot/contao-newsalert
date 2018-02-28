@@ -1,5 +1,10 @@
 # Changelog
 
+## [0.2.1] - 2018-02-28
+
+#### Fixed
+* formhybrid dependency
+
 ## [0.2] - 2018-02-28
 
 #### Added
