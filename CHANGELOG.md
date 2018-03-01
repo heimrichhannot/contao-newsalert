@@ -1,5 +1,10 @@
 # Changelog
 
+## [0.2.2] - 2018-03-01
+
+#### Fixed
+* opt-in mail not send
+
 ## [0.2.1] - 2018-02-28
 
 #### Fixed
