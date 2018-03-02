@@ -22,6 +22,7 @@ use HeimrichHannot\ContaoNewsAlertBundle\Models\NewsalertRecipientsModel;
 use HeimrichHannot\ContaoNewsAlertBundle\Models\NewsalertSendModel;
 use HeimrichHannot\ContaoNewsAlertBundle\Models\NewsModel;
 use HeimrichHannot\ContaoNewsAlertBundle\Modules\NewsalertSubscribeModule;
+use HeimrichHannot\FormHybrid\Form;
 use HeimrichHannot\FormHybrid\TokenGenerator;
 use Model\Collection;
 use NotificationCenter\Model\Notification;
@@ -149,7 +150,7 @@ class NewsPostedListener
         System::loadLanguageFile('default');
 
         foreach ($arrRecipients as $email => $data) {
-            $arrAllTopics = $this->getAllTopicsByRecipient($email);
+            $arrAllTopics = $this->getAllTopicsByRecipient($email, $objModule);
 
             $strOptOutLinksHtml = '';
             $strOptOutLinksText = '';
@@ -284,22 +285,28 @@ class NewsPostedListener
      * Returns all topics by a recipient with opt out links.
      *
      * @param $recipient string email address of the recipient
+     * @param NewsalertSubscribeModule $module Configuration module
      *
      * @return array [Topic => Opt-out-link]
      */
-    protected function getAllTopicsByRecipient($recipient)
+    protected function getAllTopicsByRecipient($recipient, $module)
     {
-        $objAllRecipientsTopics = NewsalertRecipientsModel::findByEmail($recipient);
-        $arrAllRecipientsTopics = [];
-        while ($objAllRecipientsTopics->next()) {
-            $arrAllRecipientsTopics[$objAllRecipientsTopics->topic] = $this->tokengenerator::optOutTokens(
+        $recipientsModel = NewsalertRecipientsModel::findByEmail($recipient);
+        $recipientsList = [];
+        while ($recipientsModel->next()) {
+            if ($module->formHybridAddOptOut && !$recipientsModel->optOutToken)
+            {
+                $recipientsModel->optOutToken = Form::generateUniqueToken();
+                $recipientsModel->save();
+            }
+            $recipientsList[$recipientsModel->topic] = $this->tokengenerator::optOutTokens(
                 NewsalertSubscribeModule::TABLE,
-                $objAllRecipientsTopics->optOutToken
+                $recipientsModel->optOutToken
             )['opt_out_link'];
         }
 
-        ksort($arrAllRecipientsTopics);
+        ksort($recipientsList);
 
-        return $arrAllRecipientsTopics;
+        return $recipientsList;
     }
 }
