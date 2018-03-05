@@ -1,6 +1,11 @@
 # Changelog
 
-## [0.3.0] - 2018-03-02
+## [0.3.1] - 2018-03-05
+
+#### Fixed
+* method call
+
+## [0.3.0] - 2018-03-05
 
 #### Added
 * generate opt-out token for recipients without opt-out token (for example after switching from not opt-out to opt-out)
