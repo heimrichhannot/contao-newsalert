@@ -103,7 +103,7 @@ class NewsPostedListener
         if (0 === count($arrRecipients)) {
             $objArticle->newsalert_sent = 1;
             $objArticle->save();
-            $this->createSendModel($objArticle, $topics, 0);
+            $this->createSendModel($objArticle, $topics, $objModule->id, 0);
 
             return 0;
         }
