@@ -1,5 +1,17 @@
 # Changelog
 
+## [0.3.0] - 2018-03-02
+
+#### Added
+* generate opt-out token for recipients without opt-out token (for example after switching from not opt-out to opt-out)
+* module page form field, used for opt-out link
+
+#### Changed
+* restructured some code in newsalert listener
+
+#### Fixed
+* error in backend due usage of Contao 4 only method
+
 ## [0.2.2] - 2018-03-01
 
 #### Fixed

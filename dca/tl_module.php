@@ -59,7 +59,16 @@ $arrFields = [
         'options'   => ['minutely','hourly','daily','weekly','monthly'],
         'eval'      => ['tl_class' => 'w50', 'includeBlankOption'=>true],
         'sql'       => "varchar(12) NOT NULL default ''",
-    ]
+    ],
+    'newsalertModulePage'                     => [
+        'label'      => &$GLOBALS['TL_LANG']['tl_module']['newsalertModulePage'],
+        'exclude'    => true,
+        'inputType'  => 'pageTree',
+        'foreignKey' => 'tl_page.title',
+        'eval'       => ['fieldType' => 'radio', 'tl_class' => 'w50'],
+        'sql'        => "int(10) unsigned NOT NULL default '0'",
+        'relation'   => ['type' => 'hasOne', 'load' => 'lazy'],
+    ],
 ];
 
 $arrDca['fields'] = array_merge($arrDca['fields'], $arrFields);

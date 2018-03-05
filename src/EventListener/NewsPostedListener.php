@@ -85,7 +85,7 @@ class NewsPostedListener
     }
 
     /**
-     * @param             $objArticle
+     * @param NewsModel $objArticle
      * @param ModuleModel $objModule
      *
      * @return bool|int False on failure, number of send messages on success
@@ -149,42 +149,12 @@ class NewsPostedListener
 
         System::loadLanguageFile('default');
 
-        foreach ($arrRecipients as $email => $data) {
+        foreach ($arrRecipients as $email => $data)
+        {
             $arrAllTopics = $this->getAllTopicsByRecipient($email, $objModule);
-
-            $strOptOutLinksHtml = '';
-            $strOptOutLinksText = '';
-            foreach ($arrAllTopics as $strTopic => $strOptOutToken) {
-                $strLink = Environment::get('url').$strOptOutToken;
-                $strOptOutLinksHtml .= $strTopic.': <a href="'.$strLink.'">'.$GLOBALS['TL_LANG']['MSC']['newsalert']['notifications']['unsubscribe'].'</a><br />';
-                $strOptOutLinksText .= $strTopic.' '.$GLOBALS['TL_LANG']['MSC']['newsalert']['notifications']['unsubscribe'].': '.$strLink.'\n';
-            }
-
+            $optOutLinks = $this->generateOptOutLinks($arrAllTopics, $objModule);
             $strTopics = implode(',', $data['topics']);
-            $enclosuresText = '';
-            $enclosuresHtml = '';
-
-            if ($objArticle->addEnclosure)
-            {
-                $template = new FrontendTemplate();
-                Module::addEnclosuresToTemplate($template, $objArticle->row());
-                $enclosuresList = $template->enclosure;
-                $countEnclosures = count($enclosuresList);
-                $i = 0;
-                foreach ($enclosuresList as $entry)
-                {
-                    ++$i;
-                    $enclosuresText .= Environment::get('url').'/'.$entry['enclosure'];
-                    $enclosuresHtml .= '<a href="'.Environment::get('url').'/'.$entry['enclosure'].'" title="'.$entry['title'].'">'.$entry['name'].'</a> ('.$entry['filesize'].')';
-                    if ($i < $countEnclosures)
-                    {
-                        $enclosuresText .= '\n';
-                        $enclosuresHtml .= '<br />';
-                    }
-
-                }
-            }
-
+            $enclosures = $this->addEnclosures($objArticle);
             $strUrl = Controller::replaceInsertTags('{{news_url::' . $objArticle->id . '}}', false);
 
             $arrTokens = [
@@ -195,11 +165,11 @@ class NewsPostedListener
                 'huh_newsalert_news_subheadline' => $objArticle->subheadline,
                 'huh_newsalert_news_teaser' => $strTeaser,
                 'huh_newsalert_news_content' => $strContent,
-                'huh_newsalert_news_enclosure_html' => $enclosuresHtml,
-                'huh_newsalert_news_enclosure_text' => $enclosuresText,
+                'huh_newsalert_news_enclosure_html' => $enclosures['html'],
+                'huh_newsalert_news_enclosure_text' => $enclosures['text'],
                 'huh_newsalert_news_url' => $strUrl,
-                'huh_newsalert_opt_out_html' => $strOptOutLinksHtml,
-                'huh_newsalert_opt_out_text' => $strOptOutLinksText,
+                'huh_newsalert_opt_out_html' => $optOutLinks['html'],
+                'huh_newsalert_opt_out_text' => $optOutLinks['text'],
                 'huh_newsalert_year' => date('Y'),
                 'huh_newsalert_root_url' => Environment::get('url'),
                 'raw_data' => $strContent,
@@ -301,12 +271,75 @@ class NewsPostedListener
             }
             $recipientsList[$recipientsModel->topic] = $this->tokengenerator::optOutTokens(
                 NewsalertSubscribeModule::TABLE,
-                $recipientsModel->optOutToken
+                $recipientsModel->optOutToken,
+                ''
             )['opt_out_link'];
         }
 
         ksort($recipientsList);
 
         return $recipientsList;
+    }
+
+    /**
+     * @param array $topics
+     * @param ModuleModel $config
+     * @return array
+     */
+    protected function generateOptOutLinks (array $topics, $config)
+    {
+        $links = [
+            'html' => '',
+            'text' => ''
+        ];
+        $url = Environment::get('url');
+        if ($config->newsalertModulePage)
+        {
+            $modulePage = PageModel::findByPk($config->newsalertModulePage);
+            if ($modulePage)
+            {
+                $url .= '/'.Controller::generateFrontendUrl($modulePage->row());
+            }
+        }
+
+        foreach ($topics as $topic => $token)
+        {
+            $strLink            = $url . $token;
+            $links['html'] .= $topic . ': <a href="' . $strLink . '">' . $GLOBALS['TL_LANG']['MSC']['newsalert']['notifications']['unsubscribe'] . '</a><br />';
+            $links['text'] .= $topic . ' ' . $GLOBALS['TL_LANG']['MSC']['newsalert']['notifications']['unsubscribe'] . ': ' . $strLink . '\n';
+        }
+        return $links;
+    }
+
+    /**
+     * @param NewsModel $article
+     * @return array
+     */
+    protected function addEnclosures($article)
+    {
+        $enclosures = [
+            'html' => '',
+            'text' => ''
+        ];
+        if ($article->addEnclosure)
+        {
+            $template = new FrontendTemplate();
+            Module::addEnclosuresToTemplate($template, $article->row());
+            $enclosuresList = $template->enclosure;
+            $countEnclosures = count($enclosuresList);
+            $i = 0;
+            foreach ($enclosuresList as $entry)
+            {
+                ++$i;
+                $enclosures['text'] .= Environment::get('url').'/'.$entry['enclosure'];
+                $enclosures['html'] .= '<a href="'.Environment::get('url').'/'.$entry['enclosure'].'" title="'.$entry['title'].'">'.$entry['name'].'</a> ('.$entry['filesize'].')';
+                if ($i < $countEnclosures)
+                {
+                    $enclosures['text'] .= '\n';
+                    $enclosures['html'] .= '<br />';
+                }
+            }
+        }
+        return $enclosures;
     }
 }

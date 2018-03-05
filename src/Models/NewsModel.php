@@ -18,7 +18,7 @@ class NewsModel extends \Contao\NewsModel
      *
      * @param array $options
      *
-     * @return \Contao\Model\Collection|\Contao\NewsModel|NewsModel[]|null
+     * @return \Contao\Model\Collection|NewsModel|NewsModel[]|null
      */
     public static function findUnsentPublished($limit = 0, $pids = [], array $options = [])
     {

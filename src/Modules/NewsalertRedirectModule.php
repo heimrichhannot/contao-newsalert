@@ -38,10 +38,8 @@ class NewsalertRedirectModule extends Module
         if (TL_MODE === 'BE') {
             /** @var BackendTemplate|object $objTemplate */
             $objTemplate = new BackendTemplate('be_wildcard');
-            $objTemplate->wildcard = '### '.Utf8::strtoupper($GLOBALS['TL_LANG']['FMD'][static::MODULE_NAME][0]).' ###';
-//            $objTemplate->title = 'Newsalert Redirect';
+            $objTemplate->wildcard = '### '.utf8_strtoupper($GLOBALS['TL_LANG']['FMD'][static::MODULE_NAME][0]).' ###';
             $objTemplate->id = $this->id;
-//            $objTemplate->link = $this->name;
             $objTemplate->href = 'contao/main.php?do=themes&amp;table=tl_module&amp;act=edit&amp;id='.$this->id;
 
             return $objTemplate->parse();

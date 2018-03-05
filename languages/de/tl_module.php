@@ -27,6 +27,7 @@ $lang['trigger_legend'] = "Sendeevent";
 $lang['misc_legend']    = "Verschiedenes";
 
 $lang['newsalertCronIntervall'] = ['Intervall', 'Intervall für dem PoorManCron von Contao'];
+$lang['newsalertModulePage'] = ['Modulseite', 'Geben Sie hier die Seite an, auf welcher dieses Module eingebunden wird. Dies wird für die Erstellung von Link (etwa opt-out), bei deren Generierung kein Kontext vorhanden ist, verwendet. Wird keine Seite angegegeben, wird die Startseite verwendet.'];
 
 
 $lang[\HeimrichHannot\ContaoNewsAlertBundle\Modules\NewsalertRedirectModule::MODULE_NAME] = [

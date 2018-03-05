@@ -20,3 +20,4 @@ $arrLang['trigger_legend'] = "Send event";
 $arrLang['misc_legend'] = "Misc";
 
 $lang['newsalertCronIntervall'] = ['Interval', 'Interval for the contao poor man cron.'];
+$lang['newsalertModulePage'] = ['Module page', 'Set page, where this model is added. This is needed for link generation, if no context is given (for example opt-out links). If no page is given, the index page is used.'];
