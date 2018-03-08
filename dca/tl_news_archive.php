@@ -33,7 +33,7 @@ $fields = [
         'inputType' => 'checkbox',
         'exclude'   => true,
         'default'   => false,
-        'sql'       => "int(1) NOT NULL default '0'",
+        'sql'       => "char(1) NOT NULL default ''",
         'eval'      => ['tl_class' => 'w50 clr', 'submitOnChange' => true],
     ],
     'newsalert_configuration' => [
