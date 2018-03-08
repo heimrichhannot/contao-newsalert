@@ -1,6 +1,6 @@
 # Changelog
 
-## [0.4.0-dev] - 2018-03-08
+## [0.4.0] - 2018-03-08
 
 #### Fixed
 * sql for `newsalert_activate` in `tl_news_archive`
