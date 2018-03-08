@@ -5,6 +5,10 @@
 #### Fixed
 * sql for `newsalert_activate` in `tl_news_archive`
 
+#### Added
+* complete english translation for `tl_module`
+* translation for `newsalertNoTopicSelection` in `tl_module`
+
 ## [0.3.1] - 2018-03-05
 
 #### Fixed
