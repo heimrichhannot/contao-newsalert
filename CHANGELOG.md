@@ -1,5 +1,13 @@
 # Changelog
 
+## [0.4.1] - 2018-03-08
+
+#### Fixed
+* lang file sometimes not loaded in redirect module
+
+#### Changed
+* removed some contao 4 leftovers
+
 ## [0.4.0] - 2018-03-08
 
 #### Fixed

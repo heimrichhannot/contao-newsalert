@@ -9,9 +9,7 @@
 namespace HeimrichHannot\ContaoNewsAlertBundle\Modules;
 
 use Contao\BackendTemplate;
-use Contao\StringUtil;
 use HeimrichHannot\ContaoNewsAlertBundle\Forms\NewsAlertSubscriptionForm;
-use Patchwork\Utf8;
 
 class NewsalertSubscribeModule extends \Module
 {

@@ -11,17 +11,11 @@ namespace HeimrichHannot\ContaoNewsAlertBundle\Modules;
 use Contao\BackendTemplate;
 use Contao\Module;
 use Contao\Session;
-use Patchwork\Utf8;
-use Symfony\Component\DependencyInjection\Container;
+use Contao\System;
 
 class NewsalertRedirectModule extends Module
 {
     const MODULE_NAME = 'contao-newsalert-redirect';
-
-    /**
-     * @var Container
-     */
-    protected $container;
 
     protected $topic;
     protected $success = 'error';
@@ -66,7 +60,8 @@ class NewsalertRedirectModule extends Module
      */
     protected function compile()
     {
-        $strMessageId = $GLOBALS['TL_LANG']['tl_module'][NewsalertRedirectModule::MODULE_NAME]['opt'.$this->opt][$this->success];
+        System::loadLanguageFile('tl_module');
+        $strMessageId = $GLOBALS['TL_LANG']['tl_module'][static::MODULE_NAME]['opt'.$this->opt][$this->success];
         $this->Template->headline = $strMessageId['head'];
         $this->Template->wrapperClass = $this->strWrapperClass;
         $this->Template->wrapperId = $this->strWrapperId;
