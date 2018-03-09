@@ -1,6 +1,11 @@
 # Changelog
 
-## [0.4.1] - 2018-03-08
+## [0.4.2] - 2018-03-09
+
+#### Fixed
+* module page selection not visible in subscripe module config
+
+## [0.4.1] - 2018-03-09
 
 #### Fixed
 * lang file sometimes not loaded in redirect module

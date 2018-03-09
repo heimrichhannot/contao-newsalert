@@ -12,7 +12,7 @@ $arrDca = &$GLOBALS['TL_DCA']['tl_module'];
 
 $arrDca['palettes'][\HeimrichHannot\ContaoNewsAlertBundle\Modules\NewsalertSubscribeModule::MODULE_NAME] =
     '{title_legend},name,headline,type;'
-    .'{message_handling_legend},newsalertOptIn,formHybridAddOptOut;'
+    .'{message_handling_legend},newsalertOptIn,formHybridAddOptOut,newsalertModulePage;'
     .'{misc_legend},newsalertCronIntervall,newsalertNoTopicSelection,formHybridCustomSubmit;'
     .'{template_legend:hide},formHybridTemplate,customTpl;'
     .'{protected_legend:hide},protected;{expert_legend:hide},guests,cssID,space;';
