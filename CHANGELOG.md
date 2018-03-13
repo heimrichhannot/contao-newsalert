@@ -1,6 +1,11 @@
 # Changelog
 
-## [0.5.0-dev] - 2018-03-13
+## [0.5.1] - 2018-03-13
+
+#### Fixed
+* added blank option entry to topic selection
+
+## [0.5.0] - 2018-03-13
 
 #### Added
 * select specific newsroom sources in module config
