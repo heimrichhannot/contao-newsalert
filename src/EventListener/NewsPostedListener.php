@@ -96,8 +96,14 @@ class NewsPostedListener
             return false;
         }
 
+        $sources = null;
+        if ($objModule->newsalertSourceSelection)
+        {
+            $sources = deserialize($objModule->newsalertSourceSelection);
+        }
+
         $topicCollection = NewsTopicCollection::getInstance();
-        $topics = $topicCollection->getTopicsByItem($objArticle);
+        $topics = $topicCollection->getTopicsByItem($objArticle, $sources);
         $arrRecipients = $this->getRecipientsByTopic($topics);
 
         if (0 === count($arrRecipients)) {

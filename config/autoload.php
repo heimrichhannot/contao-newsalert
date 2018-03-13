@@ -33,6 +33,7 @@ ClassLoader::addClasses(array
 	'HeimrichHannot\ContaoNewsAlertBundle\Modules\NewsalertSubscribeModule'    => 'system/modules/newsalert/src/Modules/NewsalertSubscribeModule.php',
 	'HeimrichHannot\ContaoNewsAlertBundle\Backend\Modules'                     => 'system/modules/newsalert/src/Backend/Modules.php',
 	'HeimrichHannot\ContaoNewsAlertBundle\EventListener\NewsPostedListener'    => 'system/modules/newsalert/src/EventListener/NewsPostedListener.php',
+	'HeimrichHannot\ContaoNewsAlertBundle\EventListener\CallbackListener'      => 'system/modules/newsalert/src/EventListener/CallbackListener.php',
 	'HeimrichHannot\ContaoNewsAlertBundle\Models\NewsalertSendModel'           => 'system/modules/newsalert/src/Models/NewsalertSendModel.php',
 	'HeimrichHannot\ContaoNewsAlertBundle\Models\NewsalertRecipientsModel'     => 'system/modules/newsalert/src/Models/NewsalertRecipientsModel.php',
 	'HeimrichHannot\ContaoNewsAlertBundle\Models\NewsModel'                    => 'system/modules/newsalert/src/Models/NewsModel.php',

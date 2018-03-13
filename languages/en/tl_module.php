@@ -8,22 +8,50 @@
  * @license http://www.gnu.org/licences/lgpl-3.0.html LGPL
  */
 
+$lang = &$GLOBALS['TL_LANG']['tl_module'];
+
+/*
+ * Module names
+ */
 $GLOBALS['TL_LANG']['FMD']['huh_newsalert'] = 'News Alert';
 $GLOBALS['TL_LANG']['FMD'][\HeimrichHannot\ContaoNewsAlertBundle\Modules\NewsalertSubscribeModule::MODULE_NAME] = [
     'News alert subscription', 'Subscribe for news alert topic'];
 $GLOBALS['TL_LANG']['FMD'][\HeimrichHannot\ContaoNewsAlertBundle\Modules\NewsalertRedirectModule::MODULE_NAME] = [
     'News alert redirect', 'Module for redirect page for opt-in and opt-out'];
 
-$lang = &$GLOBALS['TL_LANG']['tl_module'];
-
+/*
+ * Legends
+ */
+$lang['newsalert_topic_legend'] = "Topic settings";
 $lang['message_handling_legend'] = "Message handling";
-$lang['trigger_legend'] = "Send event";
 $lang['misc_legend'] = "Misc";
 
-$lang['newsalertCronIntervall'] = ['Interval', 'Interval for the contao poor man cron.'];
+/*
+ * Fields
+ */
+$lang['newsalertCronIntervall'] = ['Cronjob interval', 'Interval for the contao poor man cron.'];
+$lang['newsalertSourceSelection'] = ['Source selection', 'Select topic sources for the newsalert.'];
 $lang['newsalertModulePage'] = ['Module page', 'Set page, where this model is added. This is needed for link generation, if no context is given (for example opt-out links). If no page is given, the index page is used.'];
 $lang['newsalertNoTopicSelection'] = ['Disable topic selection', 'Disable topic selection field and set a custom topic.'];
+$lang['newsalertOverwriteTopic'] = ['Specify topic', 'Set topic for the subscription.'];
 
+/*
+ * Sources
+ */
+$lang['newsalertSources']['archive'] = 'News archives';
+
+/*
+ * Cron
+ */
+$lang['newsalertCronIntervall']['minutely'] = 'minutely';
+$lang['newsalertCronIntervall']['hourly']   = 'hourly';
+$lang['newsalertCronIntervall']['daily']    = 'daily';
+$lang['newsalertCronIntervall']['weekly']   = 'weekly';
+$lang['newsalertCronIntervall']['monthly']  = 'monthly';
+
+/*
+ * Redirect module
+ */
 $lang[\HeimrichHannot\ContaoNewsAlertBundle\Modules\NewsalertRedirectModule::MODULE_NAME] = [
     'optin'   => [
         'success' => [

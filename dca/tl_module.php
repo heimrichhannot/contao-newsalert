@@ -12,8 +12,9 @@ $arrDca = &$GLOBALS['TL_DCA']['tl_module'];
 
 $arrDca['palettes'][\HeimrichHannot\ContaoNewsAlertBundle\Modules\NewsalertSubscribeModule::MODULE_NAME] =
     '{title_legend},name,headline,type;'
+    .'{newsalert_topic_legend},newsalertSourceSelection,newsalertNoTopicSelection;'
     .'{message_handling_legend},newsalertOptIn,formHybridAddOptOut,newsalertModulePage;'
-    .'{misc_legend},newsalertCronIntervall,newsalertNoTopicSelection,formHybridCustomSubmit;'
+    .'{misc_legend},newsalertCronIntervall,formHybridCustomSubmit;'
     .'{template_legend:hide},formHybridTemplate,customTpl;'
     .'{protected_legend:hide},protected;{expert_legend:hide},guests,cssID,space;';
 
@@ -48,15 +49,25 @@ $arrFields = [
     'newsalertOverwriteTopic'                         => [
         'label'     => &$GLOBALS['TL_LANG']['tl_module']['newsalertOverwriteTopic'],
         'exclude'   => true,
-        'inputType' => 'text',
-        'eval'      => ['submitOnChange' => true, 'maxlength'=>64],
+        'inputType' => 'select',
+        'options_callback' => [\HeimrichHannot\ContaoNewsAlertBundle\EventListener\CallbackListener::class, 'getAllTopics'],
         'sql'       => "varchar(64) NOT NULL default ''",
+    ],
+    'newsalertSourceSelection'                         => [
+        'label'     => &$GLOBALS['TL_LANG']['tl_module']['newsalertSourceSelection'],
+        'exclude'   => true,
+        'inputType' => 'checkbox',
+        'options_callback' => [\HeimrichHannot\ContaoNewsAlertBundle\EventListener\CallbackListener::class, 'getNewsalertSourcesList'],
+        'reference' => &$GLOBALS['TL_LANG']['tl_module']['newsalertSources'],
+        'eval'      => ['multiple' => true],
+        'sql'       => "blob NULL",
     ],
     'newsalertCronIntervall'                         => [
         'label'     => &$GLOBALS['TL_LANG']['tl_module']['newsalertCronIntervall'],
         'exclude'   => true,
         'inputType' => 'select',
         'options'   => ['minutely','hourly','daily','weekly','monthly'],
+        'reference' => &$GLOBALS['TL_LANG']['tl_module']['newsalertCronIntervall'],
         'eval'      => ['tl_class' => 'w50', 'includeBlankOption'=>true],
         'sql'       => "varchar(12) NOT NULL default ''",
     ],

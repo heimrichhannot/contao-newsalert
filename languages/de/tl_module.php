@@ -8,23 +8,51 @@
  * @license http://www.gnu.org/licences/lgpl-3.0.html LGPL
  */
 
+$lang = &$GLOBALS['TL_LANG']['tl_module'];
+
+/*
+ * Module names
+ */
 $GLOBALS['TL_LANG']['FMD']['huh_newsalert'] = 'Newsalert';
 $GLOBALS['TL_LANG']['FMD'][\HeimrichHannot\ContaoNewsAlertBundle\Modules\NewsalertSubscribeModule::MODULE_NAME] = [
     'Newsalert Anmeldung', 'Anmeldung für Newsalert-Topics'];
 $GLOBALS['TL_LANG']['FMD'][\HeimrichHannot\ContaoNewsAlertBundle\Modules\NewsalertRedirectModule::MODULE_NAME]  = [
     'Newsalert Redirect', 'Bestätigungsseitenmodul für Opt-in und Opt-out'];
 
-$lang = &$GLOBALS['TL_LANG']['tl_module'];
-
-$lang['message_handling_legend'] = "Nachrichten handling";
-$lang['trigger_legend'] = "Sendeevent";
+/*
+ * Legends
+ */
+$lang['newsalert_topic_legend'] = "Themen-Einstellungen";
+$lang['message_handling_legend'] = "Nachrichten-Einstellungen";
 $lang['misc_legend']    = "Verschiedenes";
 
-$lang['newsalertCronIntervall'] = ['Intervall', 'Intervall für dem PoorManCron von Contao'];
+/*
+ * Fields
+ */
+$lang['newsalertCronIntervall'] = ['Cronjob-Intervall', 'Intervall für dem PoorManCron von Contao'];
+$lang['newsalertSourceSelection'] = ['Quellen-Auswahl', 'Geben Sie hier an, welche Themen-Quellen für den Newsalert benutzt werden dürfen.'];
 $lang['newsalertModulePage'] = ['Modulseite', 'Geben Sie hier die Seite an, auf welcher dieses Module eingebunden wird. Dies wird für die Erstellung von Link (etwa opt-out), bei deren Generierung kein Kontext vorhanden ist, verwendet. Wird keine Seite angegegeben, wird die Startseite verwendet.'];
 $lang['newsalertNoTopicSelection'] = ['Themenauswahl deaktivieren', 'Hier können Sie die Möglichkeit zur Auswahl eines Newsalert Themas deaktivieren und ein spezifisches Thema vorgeben.'];
+$lang['newsalertOverwriteTopic'] = ['Spezifisches Thema', 'Setzen Sie hier das Thema, für welches die Anmeldung gelten soll.'];
+
+/*
+ * Sources
+ */
+$lang['newsalertSources']['archive'] = 'Neuigkeiten-Archive';
+
+/*
+ * Cron
+ */
+$lang['newsalertCronIntervall']['minutely'] = 'Minütlich';
+$lang['newsalertCronIntervall']['hourly']   = 'Stündlich';
+$lang['newsalertCronIntervall']['daily']    = 'Täglich';
+$lang['newsalertCronIntervall']['weekly']   = 'Wöchentlich';
+$lang['newsalertCronIntervall']['monthly']  = 'Monatlich';
 
 
+/*
+ * Redirect module
+ */
 $lang[\HeimrichHannot\ContaoNewsAlertBundle\Modules\NewsalertRedirectModule::MODULE_NAME] = [
     'optin'   => [
         'success' => [

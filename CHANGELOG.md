@@ -1,9 +1,21 @@
 # Changelog
 
+## [0.5.0-dev] - 2018-03-13
+
+#### Added
+* select specific newsroom sources in module config
+* some missing translations
+
+#### Changed 
+* optimized module palette
+
+#### Fixed
+* removed unused language string
+
 ## [0.4.2] - 2018-03-09
 
 #### Fixed
-* module page selection not visible in subscripe module config
+* module page selection not visible in subscribe module config
 
 ## [0.4.1] - 2018-03-09
 
