@@ -1,5 +1,10 @@
 # Changelog
 
+## [0.5.2] - 2018-03-14
+
+#### Fixed
+* no space allowed for topics
+
 ## [0.5.1] - 2018-03-13
 
 #### Fixed

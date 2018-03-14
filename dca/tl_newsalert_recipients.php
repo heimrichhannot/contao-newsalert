@@ -105,7 +105,7 @@ $GLOBALS['TL_DCA'][$strTable] = [
                 'chosen'    => true,
                 'maxlength' => 128,
                 'mandatory' => true,
-                'nospace'   => true,
+                'nospace'   => false,
                 'tl_class'  => 'w50',
                 'includeBlankOption' => true
             ],
