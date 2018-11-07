@@ -1,5 +1,13 @@
 # Changelog
 
+## [0.6.0] - 2018-11-07
+
+#### Changed
+* increased formhybrid dependency due callback changes
+
+#### Fixed
+* php warning due incompatible method declaration
+
 ## [0.5.2] - 2018-03-14
 
 #### Fixed

@@ -83,10 +83,12 @@ class NewsAlertSubscriptionForm extends Form
         return parent::createSubmission($this->strModelClass);
     }
 
-    /**
-     * @param \DataContainer           $dc
-     */
-    protected function afterActivationCallback(\DataContainer $dc)
+	/**
+	 * @param \DataContainer $dc
+	 * @param $objModel
+	 * @param null $submissionData
+	 */
+    protected function afterActivationCallback(\DataContainer $dc, $objModel, $submissionData = null)
     {
         $this->setSessionVariables(true, $this->objActiveRecord->topic, 'in');
         StatusMessage::reset($dc->moduleId);
