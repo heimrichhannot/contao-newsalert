@@ -1,5 +1,8 @@
 # Changelog
 
+## [0.6.2] - 2019-12-03
+- fixed composer.json
+
 ## [0.6.1] - 2019-12-03
 - added contao 4 compatibility
 
