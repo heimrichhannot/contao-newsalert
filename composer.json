@@ -6,9 +6,9 @@
   "homepage": "https://github.com/heimrichhannot/contao-newsalert",
   "require": {
     "php": "~7.0",
-    "contao/core-bundle": "~3.5.1",
-    "contao-community-alliance/composer-plugin": "~2.4",
-    "terminal42/notification_center": "~1.4.1",
+    "contao/core-bundle": "~3.5.1||^4.4",
+    "contao-community-alliance/composer-plugin": "~2.4 || ~3.0"
+    "terminal42/notification_center": "^1.4",
     "heimrichhannot/contao-formhybrid": "^3.3"
   },
   "authors": [
