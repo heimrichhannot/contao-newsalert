@@ -1,5 +1,8 @@
 # Changelog
 
+## [0.6.3] - 2019-12-10
+- fixed opt-in issue
+
 ## [0.6.2] - 2019-12-03
 - fixed composer.json
 

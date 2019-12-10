@@ -8,6 +8,7 @@
 
 namespace HeimrichHannot\ContaoNewsAlertBundle\Forms;
 
+use Contao\Model;
 use Contao\Session;
 use HeimrichHannot\ContaoNewsAlertBundle\Models\NewsalertRecipientsModel;
 use HeimrichHannot\ContaoNewsAlertBundle\Modules\NewsalertSubscribeModule;
@@ -140,6 +141,17 @@ class NewsAlertSubscriptionForm extends Form
             unset($this->overridableValues[$name]);
         }
         $this->overridableValues[$name] = $value;
+    }
+
+    /**
+     * Return the current recipient model
+     *
+     * @return NewsalertRecipientsModel|Model|null
+     */
+    protected function findOptInModelInstance()
+    {
+        $this->objActiveRecord->refresh();
+        return $this->objActiveRecord;
     }
 
 }
